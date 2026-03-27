@@ -1,6 +1,14 @@
 /* 
         GENERAL
 */
+:root{
+  --couleur1: rgb(13, 86, 13);
+  --couleur2: rgb(22, 172, 22);
+  --couleur3: rgb(75, 44, 44);
+  --couleur4: rgb(129, 100, 85);
+  --couleur5: rgb(252, 220, 114);
+}
+
 *,
 *::before,
 *::after {
@@ -9,12 +17,17 @@
   box-sizing: border-box;
 }
 
-html{
-    scroll-behavior: smooth;
+html {
+  scroll-behavior: smooth;
 }
 
-body{
-    min-height: 100vh;
+body {
+  min-height: 100vh;
+
+  > *{
+    width: 90vw;
+    margin: auto;
+  }
 }
 
 /* styles polices google fonts */
@@ -56,9 +69,18 @@ p,
         HEADER
 */
 header {
+  margin-top: 3vh;
+
   h1 {
     margin: 0;
     font-size: 3rem;
+  }
+
+  nav{
+    a{
+      color: var(--couleur2);
+      text-shadow: 1px 1px 2px var(--couleur1);
+    }
   }
 }
 
@@ -66,9 +88,13 @@ header {
         MAIN
 */
 main {
-    section{
-        min-height: 50vh;
+  section {
+    min-height: 50vh;
+
+    img{
+      width: 100%;
     }
+  }
 }
 
 /* 
