@@ -1,0 +1,78 @@
+/* 
+        GENERAL
+*/
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    min-height: 100vh;
+}
+
+/* styles polices google fonts */
+.titre1 {
+  font-family: "Honk", system-ui;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings:
+    "MORF" 10,
+    "SHLN" 50;
+}
+.titre2 {
+  font-family: "Kablammo", system-ui;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings: "MORF" 0 - 60;
+}
+.titre3 {
+  font-family: "Kaushan Script", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+p,
+.texte {
+  font-family: "Smooch Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.titre1,
+.titre2 {
+  text-align: center;
+}
+
+/* 
+        HEADER
+*/
+header {
+  h1 {
+    margin: 0;
+    font-size: 3rem;
+  }
+}
+
+/* 
+        MAIN
+*/
+main {
+    section{
+        min-height: 50vh;
+    }
+}
+
+/* 
+        FOOTER
+*/
+footer {
+}
