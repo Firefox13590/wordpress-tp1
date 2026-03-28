@@ -1,7 +1,7 @@
 /* 
         GENERAL
 */
-:root{
+:root {
   --couleur1: rgb(13, 86, 13);
   --couleur2: rgb(22, 172, 22);
   --couleur3: rgb(75, 44, 44);
@@ -24,13 +24,24 @@ html {
 body {
   min-height: 100vh;
 
-  > *{
+  > * {
     width: 90vw;
     margin: auto;
   }
 }
 
-/* styles polices google fonts */
+/* animations */
+@keyframes h2-morf {
+  from{
+    font-variation-settings: "MORF" 0;
+  }
+  to{
+    font-variation-settings: "MORF" 60;
+  }
+}
+
+/* polices google fonts */
+h1,
 .titre1 {
   font-family: "Honk", system-ui;
   font-optical-sizing: auto;
@@ -40,6 +51,7 @@ body {
     "MORF" 10,
     "SHLN" 50;
 }
+h2,
 .titre2 {
   font-family: "Kablammo", system-ui;
   font-optical-sizing: auto;
@@ -47,6 +59,7 @@ body {
   font-style: normal;
   font-variation-settings: "MORF" 0 - 60;
 }
+h3,
 .titre3 {
   font-family: "Kaushan Script", cursive;
   font-weight: 400;
@@ -60,10 +73,33 @@ p,
   font-style: normal;
 }
 
+/* styles pour les differentes polices (et par extension h1, h2, h3) */
 .titre1,
 .titre2 {
   text-align: center;
 }
+
+.titre2:hover{
+  animation: h2-morf 5s ease infinite alternate ;
+}
+
+h2{
+  margin-bottom: 3vh;
+}
+
+h3{
+  margin-top: 2vh;
+  margin-bottom: 1vh;
+
+  text-decoration: underline;
+}
+
+/* check menu burger */
+input[type="checkbox"] {
+  display: none;
+}
+
+
 
 /* 
         HEADER
@@ -71,18 +107,72 @@ p,
 header {
   margin-top: 3vh;
 
-  h1 {
+  /* titre */
+  a h1 {
     margin: 0;
     font-size: 3rem;
   }
 
-  nav{
-    a{
-      color: var(--couleur2);
-      text-shadow: 1px 1px 2px var(--couleur5);
+  /* menu burger */
+  #menu-burger {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 1;
+
+    background-color: var(--couleur5);
+
+    font-size: 2em;
+    line-height: 1;
+
+    cursor: pointer;
+
+    > i {
+      display: block;
+
+      transform: rotateY(0deg);
+      transition: transform 0.5s ease;
     }
   }
+
+  #cc-menu-burger:checked ~ label#menu-burger > i {
+    transform: rotateY(180deg);
+  }
+
+  /* navigation */
+  nav {
+    display: flex;
+    flex-direction: column;
+
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 100%;
+    padding-top: 2em;
+
+    background-color: rgba(0, 0, 0, .25);
+
+    transition: left .5s ease;
+
+    a {
+      padding: 1vh;
+      border: 1px solid var(--couleur3);
+
+      color: var(--couleur2);
+      background-color: var(--couleur5);
+      /* text-shadow: 1px 1px 2px var(--couleur5); */
+
+      font-size: 1.5em;
+    }
+  }
+
+  #cc-menu-burger:checked ~ nav{
+    left: 0;
+  }
 }
+
+
 
 /* 
         MAIN
@@ -92,11 +182,13 @@ main {
     margin: 10vh 0;
     min-height: 50vh;
 
-    img{
+    img {
       width: 100%;
     }
   }
 }
+
+
 
 /* 
         FOOTER
