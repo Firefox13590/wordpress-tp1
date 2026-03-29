@@ -99,6 +99,28 @@ input[type="checkbox"] {
   display: none;
 }
 
+/* regle generale pour les images */
+figure{
+  display: flex;
+  flex-direction: column;
+
+  margin: 2vh 0;
+
+  img {
+    width: 100%;
+  }
+
+  figcaption{
+    background-color: rgba(255, 255, 255, .25);
+  }
+}
+
+/* regle generale pour les liens */
+a{
+  color: var(--couleur5);
+  text-shadow: 1px 1px 1px black;
+}
+
 
 
 /* 
@@ -161,9 +183,9 @@ header {
 
       color: var(--couleur2);
       background-color: var(--couleur5);
-      /* text-shadow: 1px 1px 2px var(--couleur5); */
 
       font-size: 1.5em;
+      text-decoration: none;
     }
   }
 
@@ -179,11 +201,54 @@ header {
 */
 main {
   section {
-    margin: 10vh 0;
+    margin: 5vh 0;
+    padding: 2vh 5vw;
     min-height: 50vh;
+  }
 
-    img {
+  section#anatomie{
+    img{
+      background-color: white;
+    }
+  }
+
+  /* galerie */
+  section#ici{
+    .galerie{
+      display: flex;
+      justify-content: space-between;
+      align-items: stretch;
+
+      margin: 5vh 0;
       width: 100%;
+      aspect-ratio: 16 / 9;
+      border: 1px solid black;
+
+      background-image: url('images/espace_pour_la_vie/camponotus-23942.jpg');
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+
+      transition: background-image;
+
+      .fa-solid{
+        flex-basis: 10%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        opacity: 0;
+        background-color: rgba(255, 255, 255, 0.5);
+        cursor: pointer;
+
+        transition: opacity .5s;
+      }
+    }
+    .galerie:hover{
+      .fa-solid{
+        opacity: 1;
+      }
     }
   }
 }
@@ -194,4 +259,96 @@ main {
         FOOTER
 */
 footer {
+  display: flex;
+  justify-content: space-between;
+
+  width: 100vw;
+  padding: 5vw;
+
+  color: white;
+  background-color: black;
+
+  /* sources textes et images */
+  .sources{
+    display: flex;
+    flex-direction: column;
+
+    a{
+      color: var(--couleur5);
+      text-decoration: none;
+    }
+  }
+
+  /* icones de logo avec font awesome */
+  .reseaux{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+    a{
+      color: white;
+
+      i{
+        font-size: 1.5em;
+      }
+    }
+  }
+}
+
+
+@media screen and (width > 992px) {
+  html{
+    font-size: 1.5em;
+  }
+
+  header{
+    #menu-burger{
+      display: none;
+    }
+
+    nav{
+      flex-direction: row;
+
+      padding-top: 1em;
+      width: auto;
+      height: auto;
+
+      background-color: transparent;
+
+      position: static;
+      transition: none;
+
+      a{
+        font-size: 1em;
+        flex: 1 1 auto;
+      }
+    }
+  }
+
+  footer{
+    justify-content: space-around;
+
+    padding: 3vw;
+
+    .sources{
+      flex-direction: row;
+      align-items: center;
+      gap: 2vw;
+
+      font-size: 1.25em;
+    }
+
+    .reseaux{
+      flex-direction: row;
+      /* justify-content: stretch;
+      align-items: stretch; */
+
+      a{
+        i{
+          font-size: 5em;
+        }
+      }
+    }
+  }
 }
